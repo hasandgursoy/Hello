@@ -20,7 +20,7 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet(Name = "GetWeatherForecast")] // köşeli parantez içindekileri attribute olarak adlandırıyoruz
     public IEnumerable<WeatherForecast> Get()
     {
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
@@ -31,4 +31,15 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+
+    // Action Methods = Http request'leri karşılayıp, servis içerisinde gerekli işlemler tamamlandıktan sonra http response'ları geri döndüren metotlardır.
+    // Action Method = En çok kullanılan 3 yöntem FromBody , FromQuery ve FromRoute attribute'leri kullanılarak yapılanlardır.
+    /*
+    FromBody: Http request inin body'si içerisinde gönderilen parametreleri okumak için kullanılır.
+    FromQuery: Url içerisine gömülen parametreleri okumak için kullanılan attribute dur.
+    FromRoute: Endpoint url'i içerisinde gönderilen parametreleri okumak için kullanılır. Yaygın olarak resource'a ait id bilgisi okurken kullanılır.
+    */
+
+    // Action Method =  bana id si 3 olan değeri getir diyoruz.
+    // y
 }
